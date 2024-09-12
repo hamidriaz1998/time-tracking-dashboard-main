@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- displays site properly based on user's device -->
+        <link rel="stylesheet" href="output.css" />
+        <script src="script.js" defer></script>
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./images/favicon-32x32.png"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+            rel="stylesheet"
+        />
+        <title>Frontend Mentor | Time tracking dashboard</title>
+
+        <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+        <style>
+            .attribution {
+                font-size: 11px;
+                text-align: center;
+                color: white;
+            }
+            .attribution a {
+                color: hsl(228, 45%, 44%);
+            }
+        </style>
+    </head>
+    <body class="font-Rubik bg-neutral-very_dark_blue w-full flex flex-col flex-1 justify-center items-center min-h-screen">
+        <main class="flex items-center justify-center p-4">
+            <div
+                class="dashboard max-w-[500px] p-4 mt-8 gap-6 w-[95%] grid grid-cols-1 lg:grid-cols-4 lg:grid-rows-2 lg:max-w-7xl lg:gap-4 lg:w-full"
+            >
+                <div
+                    class="flex flex-col items-center justify-center bg-neutral-dark_blue text-neutral-pale_blue rounded-2xl w-full max-w-full row-span-2 col-span-1 lg:justify-start lg:max-w-72"
+                    id="profile"
+                >
+                    <div
+                        class="bg-primary-blue w-full flex rounded-2xl justify-between items-center gap-4 p-7 lg:flex-1 lg:flex-wrap lg:w-[95%]"
+                    >
+                        <img
+                            src="./images/image-jeremy.png"
+                            alt="profile-pic"
+                            class="rounded-full w-20 h-20 border-4 border-white"
+                        />
+                        <div>
+                            <p class="text-neutral-pale_blue font-light">
+                                Report for
+                            </p>
+                            <h2 class="text-white font-normal text-xl">
+                                Jeremy Robson
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="tabs lg:self-start">
+                        <ul
+                            class="list-none font-normal w-full flex justify-between p-5 gap-9 flex-wrap min-[320px]:gap-6 lg:flex-col"
+                        >
+                            <li class="filter">Daily</li>
+                            <li class="filter selected-filter">Weekly</li>
+                            <li class="filter">Monthly</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <div class="attribution">
+            Challenge by
+            <a
+                href="https://www.frontendmentor.io?ref=challenge"
+                target="_blank"
+                >Frontend Mentor</a
+            >. Coded by <a href="#">Hamid Riaz</a>.
+        </div>
+    </body>
+</html>
