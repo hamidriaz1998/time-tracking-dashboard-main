@@ -40,7 +40,8 @@ function createCard(data) {
   document.querySelector(".dashboard").appendChild(card);
 }
 
-let data = fetch("./data.json")
+let data;
+let data_fetch = fetch("./data.json")
   .then((request) => {
     if (!request.ok) {
       console.error("Error fetching data");
@@ -48,10 +49,11 @@ let data = fetch("./data.json")
     }
     return request.json();
   })
-  .then((data) => {
-    data.forEach((item) => {
+  .then((dataJson) => {
+    dataJson.forEach((item) => {
       createCard(item);
     });
+    data = dataJson;
   });
 
 document.querySelectorAll(".filter").forEach((filter) => {
@@ -59,5 +61,24 @@ document.querySelectorAll(".filter").forEach((filter) => {
     selectedFilter.classList.remove("selected-filter");
     selectedFilter = e.target;
     selectedFilter.classList.add("selected-filter");
+    cards = document.querySelectorAll(".card");
+    cards.forEach((card) => {
+      let cardData = data.find((item) => item.title === card.id);
+      updateCard(card, cardData);
+    });
   });
 });
+
+function updateCard(card, data) {
+  let hrs;
+  if (selectedFilter.textContent === "Daily") {
+    hrs = data.timeframes.daily;
+  } else if (selectedFilter.textContent === "Weekly") {
+    hrs = data.timeframes.weekly;
+  } else if (selectedFilter.textContent === "Monthly") {
+    hrs = data.timeframes.monthly;
+  }
+  card.querySelector("#current").textContent = `${hrs.current}hrs`;
+  card.querySelector("#previous").textContent =
+    `Last Week - ${hrs.previous}hrs`;
+}
